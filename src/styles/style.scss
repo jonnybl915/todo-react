@@ -17,14 +17,21 @@ body {
 	background-color: $tertiary-color;
 	height: 700px;
   margin: 20px
+
 }
 
 #todo-form-container {
 	margin: 16px;
+
 }
 
 .todo-input {
 	color: $secondary-color;
+
+}
+.input-field {
+	width: 90%;
+	display: inline-block;
 }
 
 h3 {

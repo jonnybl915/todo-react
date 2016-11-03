@@ -1,11 +1,11 @@
 const ReactDOM = require('react-dom');
 const React = require('react');
 const Backbone = require('backbone');
-var $ = require('jquery');
 
-console.log("React Object: ", React);
+
 
 let ToDoModel = Backbone.Model.extend({});
+
 
 const HomeView = React.createClass({
 
@@ -48,6 +48,8 @@ const HomeView = React.createClass({
              <h3>My Todos</h3>
              <div className="input-field col s6">
                <input placeholder="What Is There ToDo..." id="first_name" type="text" className="validate todo-input"></input>
+                <a className="btn-floating btn-med waves-effect waves-light red"><i className="material-icons">add</i></a>
+
                <label className="todo-input" ></label>
              </div>
            </div>
