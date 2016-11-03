@@ -32,13 +32,19 @@ const HomeView = React.createClass({
      toDoModelsListArray.push(defaultToDo);
      toDoModelsListArray.push(defaultToDo2);
 
-    let startingStateObject = {
+    this.startingStateObject = {
        isSomethingGreat: false,
        toDoData : toDoModelsListArray
     }
-    console.log("startingStateObject: ", startingStateObject);
-    return startingStateObject;
+
+
+
+    console.log("startingStateObject: ", this.startingStateObject);
+    return this.startingStateObject;
  },
+ _addToDoItemToList: function(){
+   
+ }
 
   render: function(){
     return (
@@ -49,21 +55,18 @@ const HomeView = React.createClass({
           <div className="row input-row">
 
              <div className="input-field col s11">
-               <input placeholder="What Is There ToDo..." id="first_name" type="text" className="validate todo-input"></input>
+               <input placeholder="What Is There ToDo..." id="first_name" type="text" ref="todo-input" className="validate todo-input"></input>
 
 
                <label className="todo-input" ></label>
              </div>
              <div className="add-button">
-               <a className="btn-floating btn-med waves-effect waves-light red"><i className="material-icons">add</i></a>
+               <a className="btn-floating btn-med waves-effect waves-light red" onClick={this._addToDoItemToList}><i className="material-icons">add</i></a>
              </div>
            </div>
         </form>
         <ul className="collection">
-          <li className="collection-item">Alvin</li>
-          <li className="collection-item">Alvin</li>
-          <li className="collection-item">Alvin</li>
-          <li className="collection-item">Alvin</li>
+
         </ul>
       </div>
 

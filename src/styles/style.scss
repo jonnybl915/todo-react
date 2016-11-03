@@ -16,9 +16,11 @@ body {
 .todo-container {
 	background-color: $tertiary-color;
 	height: 700px;
-  margin: 20px
+  margin: 20px;
+	border: solid 2px white;
 
 }
+
 
 #todo-form-container {
 	margin: 16px;
@@ -26,7 +28,7 @@ body {
 }
 
 .todo-input {
-	color: $secondary-color;
+	color: white;
 
 }
 .input-row {
@@ -45,7 +47,7 @@ body {
 }
 h3 {
 	text-align: center;
-	color: $primary-color;
+	color: $quatro-color;
 	padding-top: 21px;
 	padding-bottom: 16px;
 }
