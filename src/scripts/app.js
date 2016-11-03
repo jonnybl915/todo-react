@@ -42,9 +42,7 @@ const HomeView = React.createClass({
     console.log("startingStateObject: ", this.startingStateObject);
     return this.startingStateObject;
  },
- _addToDoItemToList: function(){
-   
- }
+
 
   render: function(){
     return (
@@ -61,7 +59,7 @@ const HomeView = React.createClass({
                <label className="todo-input" ></label>
              </div>
              <div className="add-button">
-               <a className="btn-floating btn-med waves-effect waves-light red" onClick={this._addToDoItemToList}><i className="material-icons">add</i></a>
+              <a className="btn-floating btn-med waves-effect waves-light red" ><i className="material-icons">add</i></a>
              </div>
            </div>
         </form>
