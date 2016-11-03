@@ -3,8 +3,26 @@
 	box-sizing: border-box;
 }
 
-h1 {
-	font-size: 300px;
-	text-align: center;
-	color: fuchsia;
+$primary-color: #DD5F32;
+$secondary-color: #E19D29;
+$tertiary-color: #92B06A;
+$quatro-color: #ADC4CC;
+$cinco-color: #4298B5;
+
+body {
+	background-color: $quatro-color;
+}
+
+.todo-container {
+	background-color: $tertiary-color;
+	height: 700px;
+  margin: 20px
+}
+
+#todo-form-container {
+	margin: 16px;
+}
+
+.todo-input {
+	color: $secondary-color;
 }
