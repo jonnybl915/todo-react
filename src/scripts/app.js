@@ -7,29 +7,37 @@ console.log("React Object: ", React);
 
 let ToDoModel = Backbone.Model.extend({});
 
-let defaultToDo = new ToDoModel();
-let defaultToDo2 = new ToDoModel();
-
-let modelAttributes = {
-   toDoText: "Take out the trash",
-   isDone: false,
-   isHighPriority: false,   
-}
-
-let modelAtributes2 = {
-   toDoText: "Do Work",
-   isDone: false,
-   isHighPriority: true,
-}
-
 const HomeView = React.createClass({
 
   getInitialState: function(){
-    let startingStateObj = {
-       isSomethingGreat: false
+
+    let defaultToDo = new ToDoModel();
+    let defaultToDo2 = new ToDoModel();
+
+    let modelAttributes = {
+       toDoText: "Take out the trash",
+       isDone: false,
+       isHighPriority: false,
+    }
+    let modelAtributes2 = {
+       toDoText: "Do Work",
+       isDone: false,
+       isHighPriority: true,
     }
 
-    return startingStateObj //note: this MUST be an object
+    defaultToDo.set(modelAttributes);
+    defaultToDo2.set(modelAtributes2);
+
+    let toDoModelsListArray = [];
+     toDoModelsListArray.push(defaultToDo);
+     toDoModelsListArray.push(defaultToDo2);
+
+    let startingStateObject = {
+       isSomethingGreat: false,
+       toDoData : toDoModelsListArray
+    }
+    console.log("startingStateObject: ", startingStateObject);
+    return startingStateObject;
  },
 
   render: function(){
