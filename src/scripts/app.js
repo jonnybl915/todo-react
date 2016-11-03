@@ -44,13 +44,18 @@ const HomeView = React.createClass({
     return (
       <div className="todo-container">
         <form className="col s12" id="todo-form-container">
-          <div className="row">
-             <h3>My Todos</h3>
-             <div className="input-field col s6">
+          <h3>My Todos</h3>
+
+          <div className="row input-row">
+
+             <div className="input-field col s11">
                <input placeholder="What Is There ToDo..." id="first_name" type="text" className="validate todo-input"></input>
-                <a className="btn-floating btn-med waves-effect waves-light red"><i className="material-icons">add</i></a>
+
 
                <label className="todo-input" ></label>
+             </div>
+             <div className="add-button">
+               <a className="btn-floating btn-med waves-effect waves-light red"><i className="material-icons">add</i></a>
              </div>
            </div>
         </form>

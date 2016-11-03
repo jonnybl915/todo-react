@@ -29,13 +29,20 @@ body {
 	color: $secondary-color;
 
 }
+.input-row {
+	display: block;
+}
 .input-field {
-	width: 90%;
+	width: 100%;
 	display: inline-block;
+}
+.add-button {
+	padding-top: 10px;
 }
 
 h3 {
 	text-align: center;
 	color: $primary-color;
-	padding-top: 21px
+	padding-top: 21px;
+	padding-bottom: 16px;
 }
