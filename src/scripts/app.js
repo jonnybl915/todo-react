@@ -36,7 +36,7 @@ const HomeView = React.createClass({
        isSomethingGreat: false,
        toDoData : toDoModelsListArray
     }
-
+    console.log("todo models: ", toDoModelsListArray);
 
 
     console.log("startingStateObject: ", this.startingStateObject);
@@ -45,6 +45,17 @@ const HomeView = React.createClass({
 
 
   render: function(){
+    console.log("this.state.toDoData: ", this.state.toDoData);
+    console.log("this.state.toDoData[0]: ", this.state.toDoData[0]);
+    let listItemArray =  this.state.toDoData;
+    let textArray = []
+    for (var i = 0; i < listItemArray.length; i++) {
+      console.log("items in list: ", listItemArray[i]);
+       var text = listItemArray[i].toDoText
+       textArray.push(text);
+     }
+     
+
     return (
       <div className="todo-container">
         <form className="col s12" id="todo-form-container">
@@ -67,12 +78,15 @@ const HomeView = React.createClass({
 
         </ul>
       </div>
-
-
-
-
-
     )
   }
 })
+
+const ToDoItem = React.createClass({
+  render: function(){
+    return <li>{this.props.todoData.todo}</li>
+  }
+})
+
+
 ReactDOM.render(<HomeView/>, document.querySelector('#app-container'))
