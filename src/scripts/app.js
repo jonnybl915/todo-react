@@ -44,17 +44,19 @@ const HomeView = React.createClass({
  },
 
 
-  render: function(){
-    console.log("this.state.toDoData: ", this.state.toDoData);
-    console.log("this.state.toDoData[0]: ", this.state.toDoData[0]);
+  render: function(collData){
+    collData.models.map(function(model)
+    // console.log("this.state.toDoData: ", this.state.toDoData);
+    // console.log("this.state.toDoData[0]: ", this.state.toDoData[0]);
     let listItemArray =  this.state.toDoData;
     let textArray = []
     for (var i = 0; i < listItemArray.length; i++) {
-      console.log("items in list: ", listItemArray[i]);
+    //  console.log("items in list: ", listItemArray[i]);
        var text = listItemArray[i].toDoText
-       textArray.push(text);
+
+       //textArray.push(text); 
      }
-     
+
 
     return (
       <div className="todo-container">
@@ -75,7 +77,7 @@ const HomeView = React.createClass({
            </div>
         </form>
         <ul className="collection">
-
+          
         </ul>
       </div>
     )
