@@ -112,13 +112,21 @@ const ToDoItemList = React.createClass({
 const SingleToDoItem = React.createClass({
   render: function(){
     return (
+
       <li className="todo-list-item">
-          <input type="checkbox" name="" value=""/>
+
+        <form>
+
+          <a className="" onClick={this._addToDoItem}><i className="material-icons">stop</i></a>
+        </form>
+
           <p>
-            {this.props.todoModel.get('toDoText')}
+          {this.props.todoModel.get('toDoText')}
           </p>
-          <a className="btn-floating btn-med waves-effect waves-light black" onClick={this._addToDoItem}><i className="material-icons">delete</i></a>
+        <a className="btn-floating btn-med waves-effect waves-light black" onClick={this._addToDoItem}><i className="material-icons">delete</i></a>
       </li>
+
+
     )
   }
 })
