@@ -38,16 +38,13 @@ const HomeView = React.createClass({
     }
     // console.log("todo models: ", toDoModelsListArray);
 
-
-
-
     return startingStateObject;
  },
 
  _addToDoItem: function(){
    console.log("add button clicked!!!");
 
-      let theToDoText = this.refs.todo-input.value
+      let theToDoText = this.refs.todoData.value
       let isDone = false
       let isHighPriority = false
 
@@ -56,13 +53,13 @@ const HomeView = React.createClass({
         isDone: isDone,
         isHighPriority: isHighPriority,
       }
-      let newToDoMod = toDoModel();
+      let newToDoMod = new ToDoModel();
       newToDoMod.set(modAttributes);
 
       let copyOfToDoListData = this.state.toDoData.map(function(m){ return m })
       copyOfToDoListData.push(newToDoMod);
 
-      let newState = {toDoData : toDoModelsListArray}
+      let newState = {toDoData : copyOfToDoListData}
       this.setState(newState)
  },
 
@@ -76,7 +73,7 @@ render: function(){
                <div className="row input-row">
 
                   <div className="input-field col s11">
-                    <input placeholder="What Is There ToDo..." id="first_name" type="text" ref="todo-input" className="validate todo-input"></input>
+                    <input placeholder="What Is There ToDo..." id="first_name" type="text" ref="todoData" className="validate todo-input"></input>
 
 
                     <label className="todo-input" ></label>
