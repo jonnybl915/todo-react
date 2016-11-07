@@ -36,13 +36,34 @@ const HomeView = React.createClass({
        isSomethingGreat: false,
        toDoData : toDoModelsListArray
     }
-    console.log("todo models: ", toDoModelsListArray);
+    // console.log("todo models: ", toDoModelsListArray);
 
 
-    console.log("startingStateObject: ", this.startingStateObject);
 
 
     return startingStateObject;
+ },
+
+ _addToDoItem: function(){
+   console.log("add button clicked!!!");
+
+      let theToDoText = this.refs.todo-input.value
+      let isDone = false
+      let isHighPriority = false
+
+      let modAttributes = {
+        toDoText: theToDoText,
+        isDone: isDone,
+        isHighPriority: isHighPriority,
+      }
+      let newToDoMod = toDoModel();
+      newToDoMod.set(modAttributes);
+
+      let copyOfToDoListData = this.state.toDoData.map(function(m){ return m })
+      copyOfToDoListData.push(newToDoMod);
+
+      let newState = {toDoData : toDoModelsListArray}
+      this.setState(newState)
  },
 
 render: function(){
@@ -61,14 +82,11 @@ render: function(){
                     <label className="todo-input" ></label>
                   </div>
                   <div className="add-button">
-                   <a className="btn-floating btn-med waves-effect waves-light red" ><i className="material-icons">add</i></a>
+                   <a className="btn-floating btn-med waves-effect waves-light red" onClick={this._addToDoItem}><i className="material-icons">add</i></a>
                   </div>
                 </div>
              </form>
-
                  <ToDoItemList todoListData={this.state.toDoData}/>
-
-
           </div>
       )
 }
