@@ -32,7 +32,7 @@ const HomeView = React.createClass({
      toDoModelsListArray.push(defaultToDo);
      toDoModelsListArray.push(defaultToDo2);
 
-    this.startingStateObject = {
+    let startingStateObject = {
        isSomethingGreat: false,
        toDoData : toDoModelsListArray
     }
@@ -42,10 +42,11 @@ const HomeView = React.createClass({
     console.log("startingStateObject: ", this.startingStateObject);
 
 
-    return this.startingStateObject;
+    return startingStateObject;
  },
 
 render: function(){
+    let self = this;
     return  (
           <div className="todo-container">
              <form className="col s12" id="todo-form-container">
@@ -64,18 +65,32 @@ render: function(){
                   </div>
                 </div>
              </form>
-               <ul className="collection">
-                 <TodoListView/>
-               </ul>
+
+                 <ToDoItemList todoListData={this.state.toDoData}/>
+
+
           </div>
       )
 }
 })
 
+const ToDoItemList = React.createClass({
 
-const ToDoItem = React.createClass({
   render: function(){
-    return <li>{this.props.todoData.todo}</li>
+
+    let arrayOfToDoListItems = this.props.todoListData.map(function(model){
+      return (
+        <SingleToDoItem todoModel={model} key={model.cid}/>
+      )
+    })
+
+    return (
+        <div>
+          <ul>
+            {arrayOfToDoListItems}
+          </ul>
+        </div>
+    )
   }
 })
 
