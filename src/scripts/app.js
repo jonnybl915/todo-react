@@ -94,5 +94,21 @@ const ToDoItemList = React.createClass({
   }
 })
 
+const SingleToDoItem = React.createClass({
+  render: function(){
+    return (
+      <li>
+          <input type="checkbox" name="" value=""/>
+          <p>
+            {this.props.todoModel.get('toDoText')}
+          </p>
+          <button>
+            <i className="delete-button"></i>
+          </button>
+      </li>
+    )
+  }
+})
+
 
 ReactDOM.render(<HomeView/>, document.querySelector('#app-container'))
