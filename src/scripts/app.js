@@ -40,49 +40,38 @@ const HomeView = React.createClass({
 
 
     console.log("startingStateObject: ", this.startingStateObject);
+
+
     return this.startingStateObject;
  },
 
+render: function(){
+    return  (
+          <div className="todo-container">
+             <form className="col s12" id="todo-form-container">
+               <h3>My Todos</h3>
 
-  render: function(collData){
-    collData.models.map(function(model)
-    // console.log("this.state.toDoData: ", this.state.toDoData);
-    // console.log("this.state.toDoData[0]: ", this.state.toDoData[0]);
-    let listItemArray =  this.state.toDoData;
-    let textArray = []
-    for (var i = 0; i < listItemArray.length; i++) {
-    //  console.log("items in list: ", listItemArray[i]);
-       var text = listItemArray[i].toDoText
+               <div className="row input-row">
 
-       //textArray.push(text); 
-     }
+                  <div className="input-field col s11">
+                    <input placeholder="What Is There ToDo..." id="first_name" type="text" ref="todo-input" className="validate todo-input"></input>
 
 
-    return (
-      <div className="todo-container">
-        <form className="col s12" id="todo-form-container">
-          <h3>My Todos</h3>
-
-          <div className="row input-row">
-
-             <div className="input-field col s11">
-               <input placeholder="What Is There ToDo..." id="first_name" type="text" ref="todo-input" className="validate todo-input"></input>
-
-
-               <label className="todo-input" ></label>
-             </div>
-             <div className="add-button">
-              <a className="btn-floating btn-med waves-effect waves-light red" ><i className="material-icons">add</i></a>
-             </div>
-           </div>
-        </form>
-        <ul className="collection">
-          
-        </ul>
-      </div>
-    )
-  }
+                    <label className="todo-input" ></label>
+                  </div>
+                  <div className="add-button">
+                   <a className="btn-floating btn-med waves-effect waves-light red" ><i className="material-icons">add</i></a>
+                  </div>
+                </div>
+             </form>
+               <ul className="collection">
+                 <TodoListView/>
+               </ul>
+          </div>
+      )
+}
 })
+
 
 const ToDoItem = React.createClass({
   render: function(){
