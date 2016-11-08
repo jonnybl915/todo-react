@@ -41,7 +41,7 @@ const HomeView = React.createClass({
     return startingStateObject;
  },
 
- _addToDoItem: function(){
+ _addToDoItem: function(e){
    console.log("add button clicked!!!");
 
       let theToDoText = this.refs.todoData.value
@@ -61,6 +61,10 @@ const HomeView = React.createClass({
 
       let newState = {toDoData : copyOfToDoListData}
       this.setState(newState)
+
+      this.refs.todoData.value = "";
+      e.preventDefault();
+      console.log("new todoInput Value?: ", this.refs.todoData.value);
  },
 
  _deleteToDoItem: function() {
