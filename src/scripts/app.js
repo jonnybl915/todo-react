@@ -41,6 +41,15 @@ const HomeView = React.createClass({
     return startingStateObject;
  },
 
+ _remove: function(item){
+    var items = this.state.items.filter(function(itm){
+    return item.id !== itm.id;
+    this.setState({
+    items: items
+    });
+  });
+},
+
  _addToDoItem: function(e){
    console.log("add button clicked!!!");
 
@@ -64,15 +73,8 @@ const HomeView = React.createClass({
 
       this.refs.todoData.value = "";
       e.preventDefault();
-      console.log("new todoInput Value?: ", this.refs.todoData.value);
+
  },
-
- _deleteToDoItem: function() {
-   console.log("Trying to DELETE!");
-  let indexOfItemToDelete = this.props.
-
-  this.props.removeItem(index);
-},
 
 render: function(){
     let self = this;
@@ -94,7 +96,7 @@ render: function(){
                   </div>
                 </div>
              </form>
-                 <ToDoItemList todoListData={this.state.toDoData}/>
+                 <ToDoItemList todoListData={this.state.toDoData} onRemove={this._remove}/>
           </div>
       )
 }
@@ -121,23 +123,18 @@ const ToDoItemList = React.createClass({
 })
 
 const SingleToDoItem = React.createClass({
+
   render: function(){
     return (
 
       <li className="todo-list-item">
 
-        <form>
-
-          <a className="" onClick={this._addToDoItem}><i className="material-icons">stop</i></a>
-        </form>
-
-          <p>
-          {this.props.todoModel.get('toDoText')}
-          </p>
-        <a className="btn-floating btn-med waves-effect waves-light black" onClick={this._deleteToDoItem}><i className="material-icons">delete</i></a>
+          <input type="checkbox" id={}/><label htmlFor={this.props.model.cid}/>
+        <p>
+        {this.props.todoModel.get('toDoText')}
+        </p>
+        <a className="btn-floating btn-med waves-effect waves-light black" onClick={this._remove}> <i className="material-icons">delete</i> </a>
       </li>
-
-
     )
   }
 })
