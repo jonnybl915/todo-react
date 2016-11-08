@@ -63,6 +63,13 @@ const HomeView = React.createClass({
       this.setState(newState)
  },
 
+ _deleteToDoItem: function() {
+   console.log("Trying to DELETE!");
+  let indexOfItemToDelete = this.props.
+
+  this.props.removeItem(index);
+},
+
 render: function(){
     let self = this;
     return  (
@@ -123,7 +130,7 @@ const SingleToDoItem = React.createClass({
           <p>
           {this.props.todoModel.get('toDoText')}
           </p>
-        <a className="btn-floating btn-med waves-effect waves-light black" onClick={this._addToDoItem}><i className="material-icons">delete</i></a>
+        <a className="btn-floating btn-med waves-effect waves-light black" onClick={this._deleteToDoItem}><i className="material-icons">delete</i></a>
       </li>
 
 
