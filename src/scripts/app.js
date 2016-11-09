@@ -41,6 +41,23 @@ const HomeView = React.createClass({
     return startingStateObject;
  },
 
+ _removeToDoItemFromState: function(item){
+   console.log("whole item: ", item);
+   let targetItem = item.target.parentNode.parentNode.parentNode;
+   console.log("Trying To Remove!!", targetItem);
+
+   console.log("target item: ", targetItem);
+   let copyOfToDoListDataToDeleteFrom = this.state.toDoData.filter(function(itm){
+   console.log("itm id: ", itm.cid);
+
+   return targetItem.id !== itm.cid;
+   console.log("copyOfToDoListMinusDeletedItems: ", copyOfToDoListDataToDeleteFrom);
+   })
+
+   let newState = {toDoData : copyOfToDoListDataToDeleteFrom}
+   this.setState(newState)
+},
+
  _addToDoItem: function(e){
    console.log("add button clicked!!!");
 
@@ -87,7 +104,7 @@ render: function(){
                   </div>
                 </div>
              </form>
-                 <ToDoItemList todoListData={this.state.toDoData} onRemove={this._removeToDoItem}/>
+                 <ToDoItemList todoListData={this.state.toDoData} onRemoveItem={self._removeToDoItemFromState}/>
           </div>
       )
 }
@@ -97,15 +114,18 @@ const ToDoItemList = React.createClass({
 
   render: function(){
 
+    let self = this;
+
     let arrayOfToDoListItems = this.props.todoListData.map(function(model){
+
       return (
 
-            <li className="todo-list-item">
+            <li className="todo-list-item" id={model.cid} key={model.cid}>
 
-              <input type="checkbox" id={model.cid} className="todo-checkbox"/>
-              <label className="todo-checkbox" htmlFor={model.cid}/>
+              <input type="checkbox" id={model.cid + 1} className="todo-checkbox"/>
+              <label className="todo-checkbox" htmlFor={model.cid + 1}/>
 
-              <SingleToDoItem todoModel={model} key={model.cid}/>
+              <SingleToDoItem todoModel={model} _removeToDoItem={self.props.onRemoveItem}/>
 
             </li>
       )
@@ -123,12 +143,6 @@ const ToDoItemList = React.createClass({
 
 const SingleToDoItem = React.createClass({
 
-  _removeToDoItem: function(item){
-    console.log("Trying To Remove!!");
-     
-   });
- },
-
   render: function(){
     return (
 
@@ -137,7 +151,7 @@ const SingleToDoItem = React.createClass({
           {this.props.todoModel.get('toDoText')}
           </p>
 
-          <a className="trash-icon" onClick={this._removeToDoItem}>
+          <a className="trash-icon" onClick={this.props._removeToDoItem}>
             <i className="material-icons">delete</i>
           </a>
 
