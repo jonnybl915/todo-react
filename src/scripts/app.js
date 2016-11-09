@@ -52,8 +52,19 @@ const HomeView = React.createClass({
    this.setState(newState)
 },
 
+handleKeyPress: function(target){
+
+  if(target.charCode===13){
+    target.preventDefault();
+    this._addToDoItem();
+
+  }
+
+},
+
  _addToDoItem: function(e){
    console.log("add button clicked!!!");
+
 
       let theToDoText = this.refs.todoData.value
       let isDone = false
@@ -74,7 +85,7 @@ const HomeView = React.createClass({
       this.setState(newState)
 
       this.refs.todoData.value = "";
-      e.preventDefault();
+    
 
  },
 
@@ -89,7 +100,7 @@ render: function(){
                <div className="row input-row">
 
                   <div className="input-field col s11">
-                    <input placeholder="What Is There ToDo..." id="first_name" type="text" ref="todoData" className="validate todo-input"></input>
+                    <input placeholder="What Is There ToDo..." id="first_name" onKeyPress={this.handleKeyPress} type="text" ref="todoData" className="validate todo-input"></input>
 
 
                     <label className="todo-input" ></label>
