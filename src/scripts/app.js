@@ -108,17 +108,18 @@ const ToDoItemList = React.createClass({
 
     let arrayOfToDoListItems = this.props.todoListData.map(function(model){
       return (
-          <div>
-          <input type="checkbox" id={model.cid}/>
-          <label htmlFor={model.cid}/>
-          <SingleToDoItem todoModel={model} key={model.cid}/>
-          </div>
+
+            <li className="todo-list-item">
+              <input type="checkbox" id={model.cid} className="todo-checkbox"/>
+              <label className="todo-checkbox" htmlFor={model.cid}/>
+              <SingleToDoItem todoModel={model} key={model.cid}/>
+            </li>
       )
     })
 
     return (
         <div>
-          <ul>
+          <ul className="ul-of-todo-items">
             {arrayOfToDoListItems}
           </ul>
         </div>
@@ -131,14 +132,18 @@ const SingleToDoItem = React.createClass({
   render: function(){
     return (
 
-      <li className="todo-list-item">
+        <div className="li-div">
 
+          <p>
+          {this.props.todoModel.get('toDoText')}
+          </p>
 
-        <p>
-        {this.props.todoModel.get('toDoText')}
-        </p>
-        <a className="btn-floating btn-med waves-effect waves-light black" onClick={this._remove}> <i className="material-icons">delete</i> </a>
-      </li>
+          <a className="btn-floating btn-med waves-effect waves-light black" onClick={this._remove}>
+            <i className="material-icons">delete</i>
+          </a>
+
+        </div>
+
     )
   }
 })
