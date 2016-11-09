@@ -108,7 +108,11 @@ const ToDoItemList = React.createClass({
 
     let arrayOfToDoListItems = this.props.todoListData.map(function(model){
       return (
-        <SingleToDoItem todoModel={model} key={model.cid}/>
+          <div>
+          <input type="checkbox" id={model.cid}/>
+          <label htmlFor={model.cid}/>
+          <SingleToDoItem todoModel={model} key={model.cid}/>
+          </div>
       )
     })
 
@@ -129,7 +133,7 @@ const SingleToDoItem = React.createClass({
 
       <li className="todo-list-item">
 
-          <input type="checkbox" id={}/><label htmlFor={this.props.model.cid}/>
+
         <p>
         {this.props.todoModel.get('toDoText')}
         </p>
