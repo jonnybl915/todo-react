@@ -41,7 +41,8 @@ const HomeView = React.createClass({
     return startingStateObject;
  },
 
- _remove: function(item){
+ _removeToDoItem: function(item){
+   console.log("Trying To Remove!!");
     var items = this.state.items.filter(function(itm){
     return item.id !== itm.id;
     this.setState({
@@ -96,7 +97,7 @@ render: function(){
                   </div>
                 </div>
              </form>
-                 <ToDoItemList todoListData={this.state.toDoData} onRemove={this._remove}/>
+                 <ToDoItemList todoListData={this.state.toDoData} onRemove={this._removeToDoItem}/>
           </div>
       )
 }
@@ -110,9 +111,16 @@ const ToDoItemList = React.createClass({
       return (
 
             <li className="todo-list-item">
+
               <input type="checkbox" id={model.cid} className="todo-checkbox"/>
               <label className="todo-checkbox" htmlFor={model.cid}/>
+
               <SingleToDoItem todoModel={model} key={model.cid}/>
+
+              <a className="btn-floating btn-sml waves-effect waves-light black" onClick={model._removeToDoItem}>
+                <i className="material-icons">delete</i>
+              </a>
+
             </li>
       )
     })
@@ -133,15 +141,9 @@ const SingleToDoItem = React.createClass({
     return (
 
         <div className="li-div">
-
           <p>
           {this.props.todoModel.get('toDoText')}
           </p>
-
-          <a className="btn-floating btn-med waves-effect waves-light black" onClick={this._remove}>
-            <i className="material-icons">delete</i>
-          </a>
-
         </div>
 
     )

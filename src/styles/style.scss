@@ -20,7 +20,10 @@ body {
 	border: solid 2px white;
 
 }
-
+.li-div p {
+	font-size:1.1em;
+  font-weight: 600;
+}
 
 #todo-form-container {
 	margin: 16px;
@@ -64,7 +67,7 @@ h3 {
 	display: flex;
 }
 .todo-checkbox {
-	margin-top: 13px;
+	margin-top: 15px;
 	padding-left: 10px;
 	margin-left: 10px;
 	display: flex;
