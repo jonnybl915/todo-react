@@ -3,6 +3,13 @@
 	box-sizing: border-box;
 }
 
+#app-container {
+	padding-top: 20%;
+	padding-right: 13%;
+	padding-left: 13%;
+	padding-bottom: 20%;
+}
+
 $primary-color: #DD5F32;
 $secondary-color: #E19D29;
 $tertiary-color: #92B06A;
@@ -18,8 +25,11 @@ body {
 	height: 700px;
   margin: 20px;
 	border: solid 2px white;
+	height: 100%;
+	padding: 20px;
 
 }
+
 .li-div p {
 	font-size:1.1em;
   font-weight: 600;
@@ -27,7 +37,6 @@ body {
 
 #todo-form-container {
 	margin: 16px;
-
 }
 
 .todo-input {
@@ -93,6 +102,9 @@ h3 {
 }
 
 .todo-list-item {
+
+	padding-bottom: 0px;
+
 	i {
 		padding-top: 0px;
 	}
